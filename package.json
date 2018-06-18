@@ -1,0 +1,47 @@
+{
+  "name": "eth-utils",
+  "private": true,
+  "version": "0.1.0-alpha.1",
+  "description": "Ethereum Utils",
+  "author": {
+    "name": "Stanislaw Glogowski",
+    "email": "hello@newobject.pl"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf ./dist/*",
+    "build": "tsc",
+    "postbuild": "tempack ./dist/",
+    "lint": "tslint --exclude node_modules **/*.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "bignumber.js": "^7.2.1",
+    "buffer": "^5.1.0",
+    "keccak": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/node": "^10.3.1",
+    "rimraf": "^2.6.2",
+    "tempack": "0.0.1",
+    "ts-jest": "^22.4.6",
+    "ts-node": "^6.1.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(\\.spec)\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
