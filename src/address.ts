@@ -1,5 +1,6 @@
 import { prepareHexValue, verifyHexValue } from "./hex";
 import { sha3 } from "./encryption";
+import { preparePublicKey } from "./keypair";
 
 /**
  * verifies address
@@ -17,7 +18,7 @@ export function verifyAddress(value: string, caseSensitivity: boolean = false): 
     value.length === 42
   ) {
     if (caseSensitivity) {
-      result = prepareAddress(value, true) === value
+      result = prepareAddress(value, true) === value;
     } else {
       result = true;
     }
@@ -46,7 +47,7 @@ export function prepareAddress(value: string, caseSensitivity: boolean = false):
 
       value = value
         .split("")
-        .map((char, index) => parseInt(hash[index], 16) < 8 ? char.toLowerCase() : char.toUpperCase())
+        .map((char, index) => parseInt(hash[ index ], 16) < 8 ? char.toLowerCase() : char.toUpperCase())
         .join("");
     }
 
@@ -54,4 +55,15 @@ export function prepareAddress(value: string, caseSensitivity: boolean = false):
   }
 
   return result;
+}
+
+/**
+ * converts public key to address
+ * @param {Buffer} publicKey
+ * @param {boolean} caseSensitivity
+ * @returns {string}
+ */
+export function publicKeyToAddress(publicKey: Buffer, caseSensitivity: boolean = false): string {
+  const buffer: Buffer = sha3(preparePublicKey(publicKey).slice(1)).slice(-20);
+  return prepareAddress(buffer.toString("hex"), caseSensitivity);
 }
