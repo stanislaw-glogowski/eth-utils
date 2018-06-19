@@ -1,6 +1,9 @@
 # ETH Utils
 
+[![NPM version][npm-image]][npm-url]
+ 
 Ethereum Utils
+
 
 **WARNING!** This is experimental library, don't use it on production.
 
@@ -41,4 +44,9 @@ Ethereum Utils
 * `preparePublicKey(publicKey: Buffer): Buffer`
 * `randomPrivateKey(): Buffer`
 * `privateToPublicKey(privateKey: Buffer): Buffer`
+
+
+
+[npm-image]: https://badge.fury.io/js/eth-utils.svg
+[npm-url]: https://npmjs.org/package/eth-utils
 
