@@ -7,7 +7,7 @@ import { sha3 } from "./encryption";
  * @param {boolean} caseSensitivity
  * @returns {boolean}
  */
-export function verifyAddress(value: string, caseSensitivity = false): boolean {
+export function verifyAddress(value: string, caseSensitivity: boolean = false): boolean {
   let result = false;
 
   if (
@@ -32,7 +32,7 @@ export function verifyAddress(value: string, caseSensitivity = false): boolean {
  * @param {boolean} caseSensitivity
  * @returns {string}
  */
-export function prepareAddress(value: string, caseSensitivity = false): string {
+export function prepareAddress(value: string, caseSensitivity: boolean = false): string {
   let result: string = null;
 
   value = prepareHexValue(value, false);
