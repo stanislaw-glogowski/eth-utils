@@ -1,47 +1,57 @@
 {
   "name": "eth-utils",
   "private": true,
-  "version": "0.1.0-alpha.3",
-  "description": "Ethereum Utils",
+  "version": "0.0.0",
+  "description": "Collection of ethereum utils",
   "author": {
     "name": "Stanislaw Glogowski",
     "email": "hello@newobject.pl"
   },
   "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stanislaw-glogowski/eth-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stanislaw-glogowski/eth-utils/issues"
+  },
   "scripts": {
-    "prebuild": "rimraf ./dist/*",
-    "build": "tsc",
-    "postbuild": "tempack ./dist/",
-    "lint": "tslint --exclude node_modules **/*.ts",
+    "clean": "rimraf ./dist/*",
+    "precompile": "npm run clean",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch",
+    "postcompile": "tempack ./dist/",
+    "prebuild": "npm run lint && npm run test",
+    "build": "npm run compile",
+    "lint": "tslint src/**/*.ts",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch --verbose false"
   },
   "dependencies": {
-    "bignumber.js": "^7.2.1",
-    "buffer": "^5.1.0",
+    "bn.js": "^4.11.8",
+    "idna-uts46-hx": "^2.3.1",
     "keccak": "^1.4.0",
-    "secp256k1": "^3.5.0"
+    "secp256k1": "^3.5.2",
+    "unorm": "^1.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^23.0.0",
-    "@types/node": "^10.3.1",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.9.4",
+    "jest": "^23.6.0",
     "rimraf": "^2.6.2",
-    "tempack": "0.0.1",
-    "ts-jest": "^22.4.6",
-    "ts-node": "^6.1.0",
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.1"
+    "tempack": "^1.1.0",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
   },
   "jest": {
+    "testEnvironment": "node",
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(\\.spec)\\.ts$",
     "moduleFileExtensions": [
       "ts",
-      "tsx",
       "js"
     ]
   }

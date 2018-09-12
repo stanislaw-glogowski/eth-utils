@@ -2,8 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
  
-Ethereum Utils
-
+Collection of ethereum utils
 
 **WARNING!** This is experimental library, don't use it on production.
 
@@ -15,37 +14,17 @@ Ethereum Utils
 
 ## Api
 
-### Address
+(COMING SOON)
 
-* `verifyAddress(value: string, caseSensitivity?: boolean): boolean`
-* `prepareAddress(value: string, caseSensitivity?: boolean): string`
-* `publicKeyToAddress(publicKey: Buffer, caseSensitivity: boolean = false): string`
+## Testing
 
-### Buffer
+```bash
+  $ npm test
+```
 
-* `anyToBuffer(value: any, options?: { size?: number; defaults?: Buffer;}): Buffer`
+## License
 
-
-### Encryption
-
-* `sha3(...data: Buffer[]): Buffer`;
-
-### Hex
-
-* `anyToHexValue(value: any, options?: { add0x?: boolean; defaults?: string;}): string`
-* `prepareHexValue(value: any, add0x?: boolean): string`
-* `verifyHexValue(value: any, prepare?: boolean): boolean`
-
-
-### Key Pair
-
-* `verifyPrivateKey(privateKey: Buffer): boolean`
-* `verifyPublicKey(publicKey: Buffer): boolean`
-* `preparePublicKey(publicKey: Buffer): Buffer`
-* `randomPrivateKey(): Buffer`
-* `privateToPublicKey(privateKey: Buffer): Buffer`
-
-
+The MIT License
 
 [npm-image]: https://badge.fury.io/js/eth-utils.svg
 [npm-url]: https://npmjs.org/package/eth-utils
