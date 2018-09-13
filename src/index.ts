@@ -1,3 +1,4 @@
+export * from "./abi";
 export * from "./address";
 export * from "./bn";
 export * from "./buffer";
