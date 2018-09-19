@@ -2,7 +2,6 @@ export * from "./abi";
 export * from "./address";
 export * from "./bn";
 export * from "./buffer";
-export * from "./compare";
 export * from "./crypto";
 export * from "./ecdsa";
 export * from "./ens";
